@@ -15,7 +15,10 @@
 
     "matches": ["http://*/*", "https://*/*"]
   }],
-  "permissions" : [
+  "background": {
+    "scripts": ["popup.js"]
+  },
+  "permissions": [
   "tabs",
   "http://*/*"
   ]
