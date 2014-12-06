@@ -40,6 +40,7 @@ html {
 }
 body{
   margin:0;
+  text-align: center;
 }
 
 
@@ -49,6 +50,25 @@ p{
 
 .header{
   background-color: #F6F6F6;
-  padding: 50px;
   width: 100%;
+  text-align:center;
+}
+
+.logo {
+  height: 48px;
+  padding: 20px 0 20px 0;
+}
+
+.phone{
+  font-family: 'Quicksand', sans-serif;
+  font-size:30px;
+  padding-top:20px;
+}
+
+.line{
+  background-color: #f6f6f6;
+  height:2px;
+  width: 270px;
+  margin-left: 40px;
+  margin-top:5px;
 }
