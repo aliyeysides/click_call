@@ -22,6 +22,12 @@ ClickCall.prototype = {
 		this.number.appendChild(newNode);
 	},
 
+	afterClick: function(){
+		chrome.runtime.sendMessage({
+			phone: this.digit
+		})
+	}
+
 }
 
 function main(){
