@@ -73,7 +73,8 @@ body{
 
 
 p{
-  font-family: "blackoutmidnight";
+  font-family: "blackout2_am";
+  padding:20px;
 }
 
 .header{
@@ -99,4 +100,10 @@ p{
   width: 270px;
   margin-left: 40px;
   margin-top:5px;
+}
+
+.dialing{
+  display: inline-flex;
+  font-size: 36px;
+  color: #00C6D9;
 }
