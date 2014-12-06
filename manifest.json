@@ -6,10 +6,11 @@
   "version": "1.0",
 
   "browser_action": {
-    "default_icon": "icon.png"
+    // "default_icon": "icon.png",
+    "default_popup": "popup.html" 
   },
   "content_scripts": [ {
-    "js": ["jquery.min.js", "content_scripts.js" ],
+    "js": ["content_script.js" ],
     "matches": ["http://*/*", "https://*/*"]
   }],
   "permissions" : [
