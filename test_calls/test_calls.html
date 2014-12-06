@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <script src="./sinch.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script>
+        $(document).ready(function() {
+            var sinchClient = new SinchClient({applicationKey: 'aa0ea37d-c1e8-49bb-8fa4-0002452b81cf', capabilities: {calling: true}});
+            var callListeners = {
+                onCallEstablished: function(call) {
+                    $('audio').attr('src', call.incomingStreamURL); //If audio element has attribute "autoplay"
+                },
+            }
+            var callClient = sinchClient.getCallClient();
+            var call;
+
+            $('#call').click(function() {
+                sinchClient.start({username:'user', password:'pass'}, function() {
+                call = callClient.callPhoneNumber('+1(646) 484 9019');
+                call.addEventListener(callListeners);
+                }).fail(console.log("did not start"));
+            });
+
+            $('#end').click(function() {
+                call.hangup();
+            });
+
+        });
+        </script>
+        <title>sinch</title>
+    </head>
+    <body>
+        <div id="call"><h2><p>Call</p></h2></div>
+        <div id="end"><h2><p>End Call</p></h2></div>
+    </body>
+</html>
