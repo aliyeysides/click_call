@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+
+  "name": "clickcall",
+  "description": "blah blah",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [ {
+    "js": ["jquery.min.js", "content_scripts.js" ],
+    "matches": ["http://*/*", "https://*/*"]
+  }],
+  "permissions" : [
+  "tabs",
+  "http://*/*"
+  ]
+}
