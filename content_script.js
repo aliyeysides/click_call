@@ -11,12 +11,16 @@ ClickCall = function(number){
 ClickCall.prototype = {
 
 	turnToLink: function(){
+		// wraps the number in an a tag
 		this.number.innerHTML = ""
 		var newNode = document.createElement('a')
 		var digitContent = document.createTextNode(this.digit)
+		// gives the number a class
+		newNode.setAttribute("class", "ClickCall-Call")
 		newNode.appendChild(digitContent)
 		this.number.appendChild(newNode);
-	}
+	},
+
 }
 
 function main(){
