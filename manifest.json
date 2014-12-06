@@ -10,7 +10,6 @@
     "default_title": "make calls on one click",
     "default_popup": "popup.html"
   },
-    "default_popup": "popup.html",
     "content_scripts": [ {
     "js": ["content_script.js" ],
 
