@@ -3,6 +3,7 @@ var ClickCall = ClickCall || {};
 
 ClickCall = function(number){
 	this.number = number;
+	this.digit = this.number.innerHTML
 	this.numbers = document.getElementsByClassName('biz-phone');
 	this.turnToLink();
 }
@@ -10,19 +11,18 @@ ClickCall = function(number){
 ClickCall.prototype = {
 
 	turnToLink: function(){
-		console.log(this.number, "this.number")
-		console.log(this.numbers, "this.numbers")
-		var newNode = this.numbers.createElement('a')
-		this.numbers.appendChild(newNode)
-		// var aTag = document.createElement("a");
+		this.number.innerHTML = ""
+		var newNode = document.createElement('a')
+		var digitContent = document.createTextNode(this.digit)
+		newNode.appendChild(digitContent)
+		this.number.appendChild(newNode);
 	}
-
 }
 
 function main(){
 	var numbers = document.getElementsByClassName('biz-phone');
 	for (i=0;i<numbers.length;i++){
-		var digits = numbers[i].innerHTML
+		var digits = numbers[i]
 		numbers[i].clickCall = new ClickCall(digits);
 	}
 }
