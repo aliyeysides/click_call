@@ -42,11 +42,12 @@ body{
   margin:0;
 }
 
+
 p{
   font-family: "blackoutmidnight";
 }
 
-#header{
+.header{
   background-color: #F6F6F6;
   padding: 50px;
   width: 100%;
