@@ -6,8 +6,14 @@
         $(document).ready(function() {
             var sinchClient = new SinchClient({applicationKey: 'aa0ea37d-c1e8-49bb-8fa4-0002452b81cf', capabilities: {calling: true}});
             var callListeners = {
+                onCallProgressing: function(call) {
+                    //toggle dialing image
+                },
                 onCallEstablished: function(call) {
                     $('audio').attr('src', call.incomingStreamURL); //If audio element has attribute "autoplay"
+                },
+                onCallEnded: function(call) {
+                    //close extension popup
                 },
             }
             var callClient = sinchClient.getCallClient();
