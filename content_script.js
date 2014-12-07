@@ -8,7 +8,6 @@ ClickCall = function(number){
 	this.numbers = document.getElementsByClassName('biz-phone');
 	this.turnToLink();
 	this.assignClickEvent();
-	// this.afterClick();
 }
 
 ClickCall.prototype = {
@@ -34,13 +33,6 @@ ClickCall.prototype = {
 		}.bind(this))
 	}
 
-	// afterClick: function(){
-
-	// 	chrome.runtime.sendMessage({
-	// 		phone: this.digit
-	// 	})
-	// }
-
 }
 
 function main(){
@@ -54,8 +46,5 @@ function main(){
 window.addEventListener('load', function(){
 	main();
 });
-
-
-
 
 
