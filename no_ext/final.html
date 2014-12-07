@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="popup.css">
+        <script src="sinch.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script>
+        $(document).ready(function() {
+            var sinchClient = new SinchClient({applicationKey: 'aa0ea37d-c1e8-49bb-8fa4-0002452b81cf', capabilities: {calling: true}});
+            var callListeners = {
+                onCallProgressing: function(call) {
+                    $('.dial_icon').attr('src', './dialing_icon.gif');
+                    $('.dial_text').text('dialing');
+                },
+                onCallEstablished: function(call) {
+                    $('audio').attr('src', call.incomingStreamURL); //If audio element has attribute "autoplay"
+                    $('.dial_icon').attr('src', './connected_icon.gif');
+                    $('.dial_text').text('connected');
+                },
+                onCallEnded: function(call) {
+                    $('.dial_icon').attr('src', './disconnect_icon.svg');
+                    $('.dial_text').text('disconnected');
+                },
+            }
+            var callClient = sinchClient.getCallClient();
+            var call;
+
+            $('.dialing').click(function() {
+                sinchClient.start({username:'user', password:'pass'}, function() {
+                var num = $('#number').val();
+                call = callClient.callPhoneNumber('+1' + num);
+                call.addEventListener(callListeners);
+                });
+            });
+
+            $('.button').click(function() {
+                call.hangup();
+                sinchClient.stop();
+            });
+
+        });
+        </script>
+    </head>
+    <body>
+        <div class = 'header'>
+            <img class = 'logo' src="logo.png" alt="">
+        </div>
+        <div id='phone'><input style="height:3em;" id='number'></input></div>
+        <div class = "line"></div>
+            <div>
+                <div class = "dialing">
+                    <img class = "dial_icon" src="disconnect_icon.svg" alt="">
+                    <p class="dial_text">Click to call</p>
+                </div>
+            </div>
+        <button class='button'><span class='icon-disconnect_icon'></span><span id="discon">Disconnect</span></button>
+        </div>
+    </body>
+</html>
