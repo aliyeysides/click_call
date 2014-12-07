@@ -56,6 +56,7 @@
 
 .icon-disconnect_icon:before {
   content: "\e600";
+  color:white;
 }
 
 html {
@@ -101,9 +102,15 @@ p{
   margin-left: 40px;
   margin-top:5px;
 }
-
 .dialing{
   display: inline-flex;
   font-size: 36px;
   color: #00C6D9;
 }
+.button{
+  height: 50px;
+  width: 200px;
+  background-color: red;
+  border: none;
+}
+
