@@ -2,9 +2,19 @@ $(document).ready(function() {
 
     var sinchClient = new SinchClient({applicationKey: '67d1fdec-e33e-43a9-aab1-552aa18cf7e2', capabilities: {calling: true}});
     var callListeners = {
+        onCallProgressing: function(call) {
+            $('.dial_icon').attr('src', './dialing_icon.gif');
+            $('.dial_text p').html('dialing');
+        },
         onCallEstablished: function(call) {
             $('audio').attr('src', call.incomingStreamURL); //If audio element has attribute "autoplay"
+            $('.dial_icon').attr('src', './connected_icon.gif');
+            $('.dial_text p').html('connected');
         },
+        onCallEnded: function(call) {
+            $('.dial_icon').attr('src', './disconnect_icon.svg');
+            $('.dial_text p').html('disconnected');
+        }
     }
     var callClient = sinchClient.getCallClient();
     var call;
