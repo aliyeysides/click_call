@@ -27,8 +27,11 @@ ClickCall.prototype = {
 	assignClickEvent: function(){
 		var link = this.number
 		link.addEventListener('click', function(event){
-			console.log(event)
-		})
+			chrome.runtime.sendMessage({
+				method: "make call",
+				phone: this.digit
+			})
+		}.bind(this))
 	}
 
 	// afterClick: function(){
