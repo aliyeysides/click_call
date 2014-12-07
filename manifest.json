@@ -11,11 +11,14 @@
     "default_popup": "popup.html"
   },
     "content_scripts": [ {
-    "js": ["content_script.js" ],
+    "js": ["content_script.js", "jquery.js"],
 
     "matches": ["http://*/*", "https://*/*"]
   }],
-  "permissions" : [
+  "background": {
+    "scripts": ["popup.js"]
+  },
+  "permissions": [
   "tabs",
   "http://*/*"
   ]

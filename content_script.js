@@ -3,9 +3,12 @@ var ClickCall = ClickCall || {};
 
 ClickCall = function(number){
 	this.number = number;
-	this.digit = this.number.innerHTML
+	// format the number to include +1
+	this.digit = "+1" + this.number.innerHTML
 	this.numbers = document.getElementsByClassName('biz-phone');
 	this.turnToLink();
+	this.assignClickEvent();
+	// this.afterClick();
 }
 
 ClickCall.prototype = {
@@ -20,6 +23,20 @@ ClickCall.prototype = {
 		newNode.appendChild(digitContent)
 		this.number.appendChild(newNode);
 	},
+
+	assignClickEvent: function(){
+		var link = this.number
+		link.addEventListener('click', function(event){
+			console.log(event)
+		})
+	}
+
+	// afterClick: function(){
+
+	// 	chrome.runtime.sendMessage({
+	// 		phone: this.digit
+	// 	})
+	// }
 
 }
 
