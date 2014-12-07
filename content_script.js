@@ -24,7 +24,6 @@ ClickCall.prototype = {
 	},
 
 	afterClick: function(){
-
 		chrome.runtime.sendMessage({
 			phone: this.digit
 		})
