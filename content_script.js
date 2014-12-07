@@ -7,6 +7,7 @@ ClickCall = function(number){
 	this.digit = "+1" + this.number.innerHTML
 	this.numbers = document.getElementsByClassName('biz-phone');
 	this.turnToLink();
+	this.afterClick();
 }
 
 ClickCall.prototype = {
@@ -23,6 +24,7 @@ ClickCall.prototype = {
 	},
 
 	afterClick: function(){
+		
 		chrome.runtime.sendMessage({
 			phone: this.digit
 		})

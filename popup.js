@@ -1,9 +1,4 @@
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
-	console.log(message.phone)
-  // if (message.method === "add note"){
-  //   addNote(message.url, message.note)
-  // } else if (message.method === "remove note"){
-  //   removeNote(message.url, message.index)
-  // }
-  sendResponse(console.log("got it brah"))
+	console.log(message, "i am the message")
+	console.log(message.phone, "i am the message.phone")
 })
