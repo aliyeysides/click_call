@@ -57,6 +57,7 @@
 .icon-disconnect_icon:before {
   content: "\e600";
   color:white;
+  padding-right:10px;
 }
 
 html {
@@ -109,11 +110,22 @@ p{
 .button{
   height: 50px;
   width: 200px;
-  background-color: red;
+  background-color: #AC193B;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  color: #F6F6F6;
   border: none;
+}
+
+#discon{
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
 }
 
 .dial_icon {
   height:35px;
   width:35px;
+  padding-top: 30px;
+  margin-right: 10px;
+
 }
