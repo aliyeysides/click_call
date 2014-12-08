@@ -19,7 +19,8 @@ $(document).ready(function() {
     var callClient = sinchClient.getCallClient();
     var call;
     function makeCall(number){
-				console.log("im trying to call")
+		console.log("im trying to call")
+        alert("asdf");
         sinchClient.start({username:'brianborge@gmail.com', password:'@$bB2012?'}, function() {
         call = callClient.callPhoneNumber(number);
         call.addEventListener(callListeners);
@@ -31,10 +32,11 @@ $(document).ready(function() {
     });
 
 		chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
+            alert("aasdfasdf");
 			if (message.method === "make call"){
-				chrome.tabs.create({url: "test.html"})
-				// makeCall(message.phone);
+				//chrome.tabs.create({url: "test.html"});
+				makeCall(message.phone);
 			}
-		})
+		});
 });
 

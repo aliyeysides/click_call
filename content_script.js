@@ -29,7 +29,7 @@ ClickCall.prototype = {
 			chrome.runtime.sendMessage({
 				method: "make call",
 				phone: this.digit
-			})
+			});
 		}.bind(this))
 	}
 
